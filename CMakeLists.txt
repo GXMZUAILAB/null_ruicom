@@ -24,6 +24,12 @@ add_library(ddscxx SHARED IMPORTED GLOBAL)
 set_target_properties(ddscxx PROPERTIES IMPORTED_LOCATION ${UNITREE_SDK_PATH}/libddscxx.so)
 
 include_directories(/home/nullsky/unitree_sdk2/include)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 
+# LineProcessor library
+add_library(LineProcessor src/LineProcessor.cpp)
+target_link_libraries(LineProcessor ${OpenCV_LIBS})
+
+# Example executable
 add_executable(go2_video_client go2_video_client.cpp)
 target_link_libraries(go2_video_client unitree_sdk2 ddsc ddscxx ${OpenCV_LIBS} Threads::Threads)
