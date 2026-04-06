@@ -1,6 +1,7 @@
 #include <unitree/robot/go2/video/video_client.hpp>
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <string>
 #include <ctime>
 #include <iomanip>
 #include <sstream>
