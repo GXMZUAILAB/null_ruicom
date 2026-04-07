@@ -41,16 +41,23 @@ private:
 
 int main(int argc, char **argv)
 {
+    std::string netInterface;
     // The robot requires a network interface (e.g., eth0, wlan0) to communicate
     if (argc < 2)
     {
         std::cout << "Usage: " << argv[0] << " networkInterface" << std::endl;
         std::cout << "Example: " << argv[0] << " eth0" << std::endl;
+        netInterface = argv[1];
         return -1;
     }
 
     // Initialize the Unitree SDK communication channel on the specified network interface
-    unitree::robot::ChannelFactory::Instance()->Init(0, argv[1]);
+
+    if (!netInterface.empty()) {
+        unitree::robot::ChannelFactory::Instance()->Init(0, netInterface);
+    } else {
+        unitree::robot::ChannelFactory::Instance()->Init(0);
+    }
 
     Go2SportHandler handler;
 
