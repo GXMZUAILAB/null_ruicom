@@ -31,5 +31,5 @@ add_library(LineProcessor src/LineProcessor.cpp)
 target_link_libraries(LineProcessor ${OpenCV_LIBS})
 
 # Example executable
-add_executable(go2_video_client go2_video_client.cpp)
+add_executable(go2_video_client src/go2_video_client.cpp)
 target_link_libraries(go2_video_client unitree_sdk2 ddsc ddscxx ${OpenCV_LIBS} Threads::Threads)

@@ -23,6 +23,14 @@ graph TD
 - Unitree SDK2
 - OpenCV 4.x
 
+## 环境准备
+
+本仓库需要 Unitree SDK2。为了方便编译，请在仓库根目录下创建到 SDK 的软链接：
+
+```bash
+ln -s /path/to/your/unitree_sdk2 ./unitree_sdk2
+```
+
 ## 编译
 
 ```bash

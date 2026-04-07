@@ -11,14 +11,14 @@ Unitree_SDK2 的官方仓库位置在 @unitree_sdk2/ ，可以在这里找到 Un
 .
 ├── AGENTS.md            # 本文件，存放 Agent 指令及仓库结构描述
 ├── CMakeLists.txt       # 项目 CMake 构建配置文件
-├── README.md            # 项目自述文件，包含整体架构描述
+├── README.md            # 项目自述文件，包含整体架构描述及环境准备说明
 ├── build/               # 编译构建目录（通常在 .gitignore 中忽略）
 ├── docs/                # 详细模块文档及使用说明目录
 │   └── LineProcessor.md # LineProcessor 模块的使用示例与参数配置
 ├── include/             # 头文件目录
 │   └── LineProcessor.hpp
 ├── src/                 # 源文件目录
-│   └── LineProcessor.cpp
-├── go2_video_client.cpp # 主程序入口，基于 Unitree SDK2 的视频客户端示例
-└── unitree_sdk2/        # Unitree SDK2 库及头文件（已在项目中引用）
+│   ├── LineProcessor.cpp
+│   └── go2_video_client.cpp # 主程序入口，基于 Unitree SDK2 的视频客户端示例
+└── unitree_sdk2/        # Unitree SDK2 库及头文件（建议作为软链接指向实际 SDK 位置）
 ```
