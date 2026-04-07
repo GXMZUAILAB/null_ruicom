@@ -11,19 +11,22 @@ if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
     set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
 endif()
 
-set(UNITREE_SDK_PATH /home/nullsky/unitree_sdk2/lib/${CMAKE_SYSTEM_PROCESSOR})
+set(UNITREE_SDK_PATH ${CMAKE_SOURCE_DIR}/unitree_sdk2/lib/${CMAKE_SYSTEM_PROCESSOR})
+set(DDS_LIB_PATH ${CMAKE_SOURCE_DIR}/unitree_sdk2/thirdparty/lib/${CMAKE_SYSTEM_PROCESSOR})
 find_library(UNITREE_SDK_LIB unitree_sdk2 PATHS ${UNITREE_SDK_PATH} NO_DEFAULT_PATH)
 
 find_package(Threads REQUIRED)
 find_package(OpenCV REQUIRED)
 
 add_library(ddsc SHARED IMPORTED GLOBAL)
-set_target_properties(ddsc PROPERTIES IMPORTED_LOCATION ${UNITREE_SDK_PATH}/libddsc.so)
+set_target_properties(ddsc PROPERTIES IMPORTED_LOCATION ${DDS_LIB_PATH}/libddsc.so)
 
 add_library(ddscxx SHARED IMPORTED GLOBAL)
-set_target_properties(ddscxx PROPERTIES IMPORTED_LOCATION ${UNITREE_SDK_PATH}/libddscxx.so)
+set_target_properties(ddscxx PROPERTIES IMPORTED_LOCATION ${DDS_LIB_PATH}/libddscxx.so)
 
-include_directories(/home/nullsky/unitree_sdk2/include)
+include_directories(${CMAKE_SOURCE_DIR}/unitree_sdk2/include)
+include_directories(${CMAKE_SOURCE_DIR}/unitree_sdk2/thirdparty/include)
+include_directories(${CMAKE_SOURCE_DIR}/unitree_sdk2/thirdparty/include/ddscxx)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 # LineProcessor library
@@ -33,3 +36,7 @@ target_link_libraries(LineProcessor ${OpenCV_LIBS})
 # Example executable
 add_executable(go2_video_client src/go2_video_client.cpp)
 target_link_libraries(go2_video_client unitree_sdk2 ddsc ddscxx ${OpenCV_LIBS} Threads::Threads)
+
+# Interactive sport client
+add_executable(go2_sport_interactive src/go2_sport_interactive.cpp)
+target_link_libraries(go2_sport_interactive unitree_sdk2 ddsc ddscxx Threads::Threads)
