@@ -204,14 +204,6 @@ constexpr int CONSECUTIVE_FRAMES_THRESHOLD = 3;   // 连续检测帧数
 constexpr int ACTION_COOLDOWN_MS = 5000;          // 动作冷却时间(ms)
 ```
 
-### 模型参数 (`scripts/convert_yolov8_to_onnx.py`)
-```python
-input_size = 640    # 输入图像尺寸
-opset = 12          # ONNX算子集版本
-dynamic = False     # 固定批次大小
-half = False        # FP32精度
-```
-
 ## 常见问题与解决方案
 
 ### 1. 检测性能低
