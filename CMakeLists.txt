@@ -97,6 +97,14 @@ target_link_libraries(go2_safety_detection
     Threads::Threads
 )
 
+# Light controller
+add_executable(go2_light_controller src/go2_light_controller.cpp)
+target_link_libraries(go2_light_controller unitree_sdk2 ddsc ddscxx Threads::Threads)
+
+# Obstacles avoidance
+add_executable(go2_obstacles_avoid src/go2_obstacles_avoid.cpp)
+target_link_libraries(go2_obstacles_avoid unitree_sdk2 ddsc ddscxx ${OpenCV_LIBS} Threads::Threads)
+
 # Test program for YOLO detector
 # add_executable(test_yolo src/test_yolo.cpp)
 # target_link_libraries(test_yolo
