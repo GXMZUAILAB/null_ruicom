@@ -98,6 +98,7 @@ int main(int argc, char** argv)
     // --- 创建调参窗口 ---
     std::string win_tuning = "Tuning Controls";
     cv::namedWindow(win_tuning, cv::WINDOW_NORMAL);
+    cv::resizeWindow(win_tuning, 300, 200);
     cv::createTrackbar("Threshold", win_tuning, &g_threshold, 255, on_trackbar);
     cv::createTrackbar("HSV Channel", win_tuning, &g_hsv_channel, 2, on_trackbar);
     cv::createTrackbar("ROI Y Offset", win_tuning, &g_roi_y, 470, on_trackbar);
@@ -105,8 +106,10 @@ int main(int argc, char** argv)
     cv::createTrackbar("Erode Iter", win_tuning, &g_erode_iter, 10, on_trackbar);
     cv::createTrackbar("Dilate Iter", win_tuning, &g_dilate_iter, 10, on_trackbar);
 
-    cv::namedWindow("Line Following View", cv::WINDOW_AUTOSIZE);
-    cv::namedWindow("Binary Mask (ROI)", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("Line Following View", cv::WINDOW_NORMAL);
+    cv::resizeWindow("Line Following View", 960, 720);
+    cv::namedWindow("Binary Mask (ROI)", cv::WINDOW_NORMAL);
+    cv::resizeWindow("Binary Mask (ROI)", 640, 480);
 
     std::cout << "控制说明: [q/Esc] 退出程序";
     if (!useRealsense) std::cout << "  [Space/Enter] 下一张图片";
