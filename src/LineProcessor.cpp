@@ -1,6 +1,11 @@
 /**
  * @file LineProcessor.cpp
  * @brief 图像线条检测处理器，提供图像预处理、二值化、形态学操作和线条质心计算
+ *
+ * @par 模块说明
+ *       本模块封装了完整的线条检测管线:
+ *       彩色图 → HSV通道提取 → 高斯模糊 → 阈值二值化 → 形态学(腐蚀+膨胀) → ROI裁剪 → 质心计算
+ *       供 go2_line_following 等上层模块调用，无需独立运行。
  */
 #include "LineProcessor.hpp"
 

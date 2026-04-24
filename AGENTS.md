@@ -12,12 +12,19 @@ Unitree_SDK2 的官方仓库位置在 @unitree_sdk2/ ，可以在这里找到 Un
 1. **文件头部注释**：每个源文件（`.cpp`/`.hpp`）必须在文件开头添加 Doxygen 风格的文件注释，包含：
    - `@file`：文件名。
    - `@brief`：简要描述该文件的用途或所属模块。
+   - `@par 使用说明`：描述程序的命令行用法、参数、操作控制等（可执行程序），或模块的功能定位（库文件）。
 
    示例：
    ```cpp
    /**
     * @file go2_line_following.cpp
     * @brief 巡线参数调优工具，支持 RealSense 实时视频流和本地图片两种输入源
+    *
+    * @par 使用说明
+    *       go2_line_following [image_path_or_dir]
+    *       示例: ./go2_line_following                     # RealSense 模式
+    *             ./go2_line_following ./images/           # 图片目录模式
+    *       控制: [Space/Enter] 下一张  [q/Esc] 退出
     */
    ```
 

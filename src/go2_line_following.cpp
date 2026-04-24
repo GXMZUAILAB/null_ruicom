@@ -1,6 +1,13 @@
 /**
  * @file go2_line_following.cpp
  * @brief 巡线参数调优工具，支持 RealSense 实时视频流和本地图片两种输入源
+ *
+ * @par 使用说明
+ *       go2_line_following [image_path_or_dir]     (无参数 = RealSense 实时模式)
+ *       示例: ./go2_line_following                          # RealSense 模式
+ *             ./go2_line_following ./images/                # 遍历目录图片
+ *             ./go2_line_following test.jpg                 # 单张图片
+ *       控制: 拖动滑块调参  [Space/Enter] 下一张(图片模式)  [q/Esc] 退出
  */
 #include <librealsense2/rs.hpp>
 #include <opencv2/opencv.hpp>
